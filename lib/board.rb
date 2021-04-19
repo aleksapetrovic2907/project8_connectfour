@@ -26,9 +26,11 @@ class Board
 
     def draw?
         @board.each do |column|
-            return true if column.none? {|cell| cell.nil?}
+            column.each do |cell|
+                return false if cell == nil
+            end
         end
-        return false
+        return true
     end
 
     def win?
